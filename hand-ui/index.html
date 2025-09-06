@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Hand UI</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Hand Landmarker UI</h1>
+      <div class="controls">
+        <button id="startBtn">카메라 시작</button>
+        <button id="stopBtn" disabled>중지</button>
+        <label>
+          손 개수
+          <input id="numHands" type="number" min="1" max="2" value="1" />
+        </label>
+        <label>
+          미러
+          <input id="mirror" type="checkbox" checked />
+        </label>
+        <span id="fps">FPS: -</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="stage">
+        <video id="video" playsinline></video>
+        <canvas id="overlay"></canvas>
+
+        <!-- 손가락으로 잡아 끌 수 있는 카드 -->
+        <div id="card" class="card" role="button" aria-label="드래그 카드" tabindex="0">
+          <h3>잡아서 이동</h3>
+          <p>엄지-검지 핀치로 드래그, 딱! 하면 클릭</p>
+          <button id="cardBtn">버튼</button>
+          <div id="clickFlash" class="flash"></div>
+        </div>
+
+        <!-- 손끝을 따라다니는 커서 -->
+        <div id="cursor" class="cursor"></div>
+      </div>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
